@@ -4,12 +4,14 @@ import path from "path";
 const router = express.Router();
 
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(
-      null,
-      "C:/Basha/Personal/projects/NyuRay/server/resources/static/assets/uploads"
-    );
-  },
+  // Enable destination if we need the local storage to server
+  // destination: function (req, file, cb) {
+  //   cb(
+  //     null,
+  //      "C:/Basha/Personal/projects/NyuRay/server/resources/static/assets/uploads"
+      
+  //   );
+  // },
   filename: function (req, file, cb) {
     let extArray = file.mimetype.split("/");
     let extension = extArray[extArray.length - 1];
@@ -17,6 +19,7 @@ var storage = multer.diskStorage({
     cb(null, file.originalname) // save as original file name
   },
 });
+//var storage = multer.memoryStorage();
 
 var upload = multer({ storage: storage });
 
@@ -27,7 +30,7 @@ import { uploadResumeFile } from "../controllers/file.upload";
 router.post(
   "/upload-resume-file",
   requireSignin,
-  [isAdmin, upload.single("file")],
+   [isAdmin, upload.single("file")],
   uploadResumeFile
 );
 
