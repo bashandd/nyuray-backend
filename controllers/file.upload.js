@@ -37,7 +37,7 @@ export const uploadResumeFile = async (req, res, next) => {
     }).save();
     res.json(resume);
 
-    next("/req/post-candidate/:slug");
+   
 
     // Google drive upload start
     const client = GoogleDriveService.authenticateGoogle();
@@ -45,6 +45,7 @@ export const uploadResumeFile = async (req, res, next) => {
       req.file,
       client
     );
+   // console.log ("fileUploadResponse : ", fileUploadResponse);
     //  res.status(200).send({
     //   response: fileUploadResponse,
     //  });
@@ -53,4 +54,6 @@ export const uploadResumeFile = async (req, res, next) => {
   } catch (err) {
     console.log(err);
   }
+
+  next("/req/post-candidate/:slug");
 };

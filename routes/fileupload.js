@@ -3,6 +3,10 @@ import multer from "multer";
 import path from "path";
 const router = express.Router();
 
+// middleware
+import { requireSignin, isAdmin } from "../middlewares";
+import { uploadResumeFile } from "../controllers/file.upload";
+
 var storage = multer.diskStorage({
   // Enable destination if we need the local storage to server
   // destination: function (req, file, cb) {
@@ -12,6 +16,7 @@ var storage = multer.diskStorage({
       
   //   );
   // },
+
   filename: function (req, file, cb) {
     let extArray = file.mimetype.split("/");
     let extension = extArray[extArray.length - 1];
@@ -23,9 +28,7 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
-// middleware
-import { requireSignin, isAdmin } from "../middlewares";
-import { uploadResumeFile } from "../controllers/file.upload";
+
 
 router.post(
   "/upload-resume-file",
