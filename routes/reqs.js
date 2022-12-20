@@ -16,7 +16,7 @@ import {
 } from "../controllers/reqs";
 
 router.post("/create-req", requireSignin, isAdmin, createReq);
-router.get("/reqs",  getReqs);
+router.get("/reqs", getReqs);
 router.get("/req/:slug", requireSignin, isAdmin, singleReq);
 router.put("/edit-req/:reqID", requireSignin, isAdmin, editReq);
 router.put("/req/update/:reqID", requireSignin, isAdmin, assignReq);
