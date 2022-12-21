@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const { ObjectId } = mongoose.Schema;
 
-
 const addCandidateSchema = new Schema(
   {
     jobCode: {
@@ -105,17 +104,23 @@ const addCandidateSchema = new Schema(
       required: true,
     },
 
-    createdBy: { type: ObjectId, ref: "User" },
+    // createdBy: { type: ObjectId, ref: "User" },
+    createdBy: { 
+      type: String, 
+      trim: true,
+    },
     slug: {
       type: String,
       unique: true,
       lowercase: true,
     },
-  
   },
   { timestamps: true, strict: false }
 );
 
-addCandidateSchema.index({ contactNumber: 1, candidateEmail: 1, candidatePAN: 1  }, { unique: true });
+addCandidateSchema.index(
+  { contactNumber: 1, candidateEmail: 1, candidatePAN: 1 },
+  { unique: true }
+);
 
 module.exports = mongoose.model("Candidate", addCandidateSchema);
