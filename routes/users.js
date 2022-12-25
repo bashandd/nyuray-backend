@@ -7,8 +7,8 @@ import { requireSignin, isAdmin } from "../middlewares";
 
 import { allUsers, updateUser, removeUser } from "../controllers/users";
 
-
 router.get("/users", allUsers);
+
 router.delete("/users/:slug", requireSignin, isAdmin, removeUser);
 router.put("/user/update/:_id", requireSignin, isAdmin, updateUser);
 

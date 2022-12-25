@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 
 // middleware
-import { requireSignin, isAdmin } from "../middlewares";
+import { requireSignin, isAdmin, isReqsAllowed } from "../middlewares";
 // controllers
 import {
   createReq,

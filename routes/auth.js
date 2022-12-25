@@ -9,6 +9,7 @@ import {
   isSpoc,
   isVendor,
   isGuest,
+  isRecruiter,
 } from "../middlewares";
 
 // controllers
@@ -34,6 +35,7 @@ router.get("/current-admin", requireSignin, isAdmin, currentUser);
 router.get("/current-spoc", requireSignin, isSpoc, currentUser);
 router.get("/current-vendor", requireSignin, isVendor, currentUser);
 router.get("/current-guest", requireSignin, isGuest, currentUser);
+router.get("/current-recruiter", requireSignin, isRecruiter, currentUser);
 //router.get("/get-all-users", requireSignin, isAdmin, getAllUsers);
 
 module.exports = router;

@@ -13,6 +13,7 @@ export const allUsers = async (req, res) => {
 
 
 
+
 export const updateUser = async (req, res) => {
   try {
     const { _id } = req.params;
