@@ -33,7 +33,7 @@ var upload = multer({ storage: storage });
 router.post(
   "/upload-resume-file",
   requireSignin,
-   [isAdmin, upload.single("file")],
+   [ upload.single("file")],
   uploadResumeFile
 );
 

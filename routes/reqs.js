@@ -17,11 +17,11 @@ import {
 
 router.post("/create-req", requireSignin, isAdmin, createReq);
 router.get("/reqs", getReqs);
-router.get("/req/:slug", requireSignin, isAdmin, singleReq);
+router.get("/req/:slug", requireSignin, singleReq);
 router.put("/edit-req/:reqID", requireSignin, isAdmin, editReq);
 router.put("/req/update/:reqID", requireSignin, isAdmin, assignReq);
 
 router.delete("/req/:reqID", requireSignin, isAdmin, removeReq);
 router.get("/req/post-candidate/:slug", requireSignin, postCandidateForReq);
-router.get("/profiles", requireSignin, isAdmin, profiles);
+router.get("/profiles", requireSignin, profiles);
 export default router;
