@@ -46,9 +46,38 @@ export class GoogleDriveService{
           media: media,
           fields: "id",
         });
+        console.log ("File Response", response);
         return response;
       };
+
+      //create a public url
+static  generatePublicUrl = async (fileId, auth)=> {
+  try {
+     // const fileId = '19VpEOo3DUJJgB0Hzj58E6aZAg10MOgmv';
+      //change file permisions to public.
+      const driveService = google.drive({ version: "v3",  auth: auth });
+       await driveService.permissions.create({
+          fileId: fileId,
+          requestBody: {
+          role: 'reader',
+          type: 'anyone',
+          },
+      });
+
+      //obtain the webview and webcontent links
+      const result = await driveService.files.get({
+          fileId: fileId,
+          fields: 'webViewLink, webContentLink',
+      });
+    console.log(result.data);
+    return result.data;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
+}
+
+
 
 
 export default GoogleDriveService;
