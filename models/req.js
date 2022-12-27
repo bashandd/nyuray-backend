@@ -36,7 +36,11 @@ const addReqSchema = new Schema(
       type: String,
       required: true,
     },
-    expRange: {
+    expRangeMin: {
+      type: String,
+      required: true,
+    },
+    expRangeMax: {
       type: String,
       required: true,
     },
