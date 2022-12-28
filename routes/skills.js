@@ -11,7 +11,7 @@ import {
   updateSkill,
 } from "../controllers/skill";
 
-router.post("/skill", requireSignin, isAdmin, create);
+router.post("/skill", requireSignin, create);
 router.get("/skills", skills);
 router.delete("/skill/:slug", requireSignin, isAdmin, removeSkill);
 router.put("/skill/:slug", requireSignin, isAdmin, updateSkill);

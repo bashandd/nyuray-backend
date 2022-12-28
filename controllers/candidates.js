@@ -60,6 +60,19 @@ export const getCandidatesForAJobCode = async (req, res) => {
   }
 };
 
+export const getAllCandidatesFromDB = async (req, res) => {
+  // const { jobCode } = req.params;
+  try {
+    const all = await Candidate.find({})
+      .sort({ createdAt: -1 });
+
+    res.json(all);
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
+};
+
 export const removeCandidateFromJob = async (req, res) => {
   try {
     const candidateID = req.params.candidateID;

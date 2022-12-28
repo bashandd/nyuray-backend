@@ -49,14 +49,14 @@ const addCandidateSchema = new Schema(
       required: true,
     },
     primarySkills: {
-      type: String,
-      trim: true,
+      type: [String],
+      default: [],
       required: true,
     },
     secondarySkills: {
-      type: String,
-      trim: true,
-      required: true,
+      type: [String],
+      default: [],
+      // required: true,
     },
     workLocation: {
       type: String,
@@ -105,16 +105,16 @@ const addCandidateSchema = new Schema(
     },
 
     // createdBy: { type: ObjectId, ref: "User" },
-    createdBy: { 
-      type: String, 
+    createdBy: {
+      type: String,
       trim: true,
     },
-    resumePath: { 
-      type: String, 
+    resumePath: {
+      type: String,
       trim: true,
     },
-    resumeFileName: { 
-      type: String, 
+    resumeFileName: {
+      type: String,
       trim: true,
     },
     slug: {
