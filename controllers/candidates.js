@@ -26,6 +26,7 @@ export const createCandidate = async (req, res) => {
       try {
         // get the user who is uploading the profile
         const _createdBy = await getNameByUserId(req.user._id);
+      //  const _resumePath = await getResumePath();
         const candidate = await new Candidate({
           ...addCandidateForm,
           slug: slugify(

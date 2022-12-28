@@ -109,6 +109,14 @@ const addCandidateSchema = new Schema(
       type: String, 
       trim: true,
     },
+    resumePath: { 
+      type: String, 
+      trim: true,
+    },
+    resumeFileName: { 
+      type: String, 
+      trim: true,
+    },
     slug: {
       type: String,
       unique: true,
