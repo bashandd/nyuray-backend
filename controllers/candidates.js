@@ -73,6 +73,21 @@ export const getAllCandidatesFromDB = async (req, res) => {
   }
 };
 
+export const getMatchingCandidates = async (req, res) => {
+  console.log ("In getMatchingCandidates");
+   const { skills } = req.params;
+   console.log ("Skills, ", skills);
+  try {
+    const all = await Candidate.find({ primarySkills: skills })
+      .sort({ createdAt: -1 });
+
+    res.json(all);
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
+};
+
 export const removeCandidateFromJob = async (req, res) => {
   try {
     const candidateID = req.params.candidateID;
