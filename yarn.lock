@@ -626,10 +626,12 @@
   dependencies:
     "tslib" "^2.0.1"
 
-"async@^1.5.2":
-  "integrity" "sha512-nSVgobk4rv61R9PUSDtYt7mPVB2olxNR5RWJcAsH676/ef11bUZwvu7+RGYrYauVdDPcO519v68wRhXQtxsV9w=="
-  "resolved" "https://registry.npmjs.org/async/-/async-1.5.2.tgz"
-  "version" "1.5.2"
+"async@^2.5.0":
+  "integrity" "sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA=="
+  "resolved" "https://registry.npmjs.org/async/-/async-2.6.4.tgz"
+  "version" "2.6.4"
+  dependencies:
+    "lodash" "^4.17.14"
 
 "async@^3.2.2":
   "integrity" "sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ=="
@@ -1702,7 +1704,7 @@
   "resolved" "https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz"
   "version" "4.1.1"
 
-"lodash@^4.0.1", "lodash@^4.17.21", "lodash@>=4.0":
+"lodash@^4.17.14", "lodash@^4.17.20", "lodash@^4.17.21", "lodash@>=4.0":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
@@ -1834,15 +1836,15 @@
   optionalDependencies:
     "saslprep" "^1.0.3"
 
-"mongoose-sequence-plugin@^1.0.5":
-  "integrity" "sha512-18zeEN9Trnso+BoEMMuycy34Ox1fjxnIZehIFVEV0xwtfb02ngelD/WTwJH63iY/82QGZHxU0sWD4wFx2uEbPg=="
-  "resolved" "https://registry.npmjs.org/mongoose-sequence-plugin/-/mongoose-sequence-plugin-1.0.5.tgz"
-  "version" "1.0.5"
+"mongoose-sequence@^5.3.1":
+  "integrity" "sha512-kQB1ctCdAQT8YdQzoHV0CpBRsO4RNVy03SOkzM6TQKBbGBs1ZgVS4UlKsuvBPaiPt9q5tKgQZvorGJ1awbHDqA=="
+  "resolved" "https://registry.npmjs.org/mongoose-sequence/-/mongoose-sequence-5.3.1.tgz"
+  "version" "5.3.1"
   dependencies:
-    "async" "^1.5.2"
-    "lodash" "^4.0.1"
+    "async" "^2.5.0"
+    "lodash" "^4.17.20"
 
-"mongoose@^6.0.12":
+"mongoose@^6.0.12", "mongoose@>=4":
   "integrity" "sha512-iA/oDpWOc+K2QYzA4Eq7Z1oUBQOz9FGDmUwPLgw872Bfs/qizA5Db+gJorAn+TnnGu3VoCK8iP4Y+TECUelwjA=="
   "resolved" "https://registry.npmjs.org/mongoose/-/mongoose-6.6.5.tgz"
   "version" "6.6.5"
