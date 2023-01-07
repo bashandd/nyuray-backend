@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const { ObjectId } = mongoose.Schema;
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 
 const addReqSchema = new Schema(
@@ -85,5 +86,7 @@ const addReqSchema = new Schema(
 );
 
 addReqSchema.index({ jobCode: 1, client: 1 }, { unique: true });
+
+addReqSchema.plugin(AutoIncrement, {inc_field: 'reqID', start_seq: '1'});
 
 module.exports = mongoose.model("Req", addReqSchema);

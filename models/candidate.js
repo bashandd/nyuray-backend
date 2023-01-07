@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const { ObjectId } = mongoose.Schema;
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const addCandidateSchema = new Schema(
   {
@@ -130,5 +131,6 @@ addCandidateSchema.index(
   { contactNumber: 1, candidateEmail: 1, candidatePAN: 1 },
   { unique: true }
 );
+addCandidateSchema.plugin(AutoIncrement, {inc_field: 'profileID', start_seq: '1'});
 
 module.exports = mongoose.model("Candidate", addCandidateSchema);

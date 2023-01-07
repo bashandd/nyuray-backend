@@ -4,7 +4,7 @@ import fs from "fs";
 export class GoogleDriveService{
 
     static getAuth = () => {
-        console.log("getAuth");
+       // console.log("getAuth");
         return new google.auth.GoogleAuth({
             keyFile: `${__dirname}/../google_credentials.json`,
             scopes: "https://www.googleapis.com/auth/drive",
@@ -12,13 +12,13 @@ export class GoogleDriveService{
     }
 
     static getDriveService = ()=>{
-        console.log("getDriveService");
+       // console.log("getDriveService");
         const auth = GoogleDriveService.getAuth();
         return google.drive({ version: 'v3', auth});
     }
 
     static authenticateGoogle = () => {
-        console.log("authenticateGoogle");
+      //  console.log("authenticateGoogle");
         const auth = new google.auth.GoogleAuth({
           keyFile: `${__dirname}/../google_credentials.json`,
           scopes: "https://www.googleapis.com/auth/drive",
@@ -28,7 +28,7 @@ export class GoogleDriveService{
       };
 
       static uploadToGoogleDrive = async (file, auth) => {
-        console.log("uploadToGoogleDrive");
+       // console.log("uploadToGoogleDrive");
         const fileMetadata = {
           name: file.originalname,
           parents: ["1Amv-3tL0x0gnLo-CMBDf4Li14mjtRM4k"], // Change it according to your desired parent folder id
@@ -46,7 +46,7 @@ export class GoogleDriveService{
           media: media,
           fields: "id",
         });
-        console.log ("File Response", response);
+        //console.log ("File Response", response);
         return response;
       };
 
@@ -69,7 +69,7 @@ static  generatePublicUrl = async (fileId, auth)=> {
           fileId: fileId,
           fields: 'webViewLink, webContentLink',
       });
-    console.log(result.data);
+  //  console.log(result.data);
     return result.data;
   } catch (error) {
     console.log(error.message);
