@@ -131,6 +131,6 @@ addCandidateSchema.index(
   { contactNumber: 1, candidateEmail: 1, candidatePAN: 1 },
   { unique: true }
 );
-addCandidateSchema.plugin(AutoIncrement, {inc_field: 'profileID', start_seq: '1'});
+addCandidateSchema.plugin(AutoIncrement, {inc_field: 'candidateID', start_seq: '1'});
 
 module.exports = mongoose.model("Candidate", addCandidateSchema);
